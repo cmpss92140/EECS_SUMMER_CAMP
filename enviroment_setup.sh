@@ -5,4 +5,4 @@ source ~/miniconda3/bin/activate
 conda install pip
 pip install pygame
 pip install pytmx
-unzip ./mapeditor/tiled-linux-64bit-snapshot.zip 
+unzip ./mapeditor/tiled-linux-64bit-snapshot.zip -d ./mapeditor

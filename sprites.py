@@ -7,7 +7,7 @@ vec = pg.math.Vector2
 
 '''處理攻擊的碰撞'''
 def got_hit(sprite, group):
-    pass
+    #TODO
 
 def collide(sprite, group, dir):
     if dir == 'x':
@@ -22,13 +22,13 @@ def collide(sprite, group, dir):
             if isinstance(hits[0], Treasure):
                 sprite.game.win = True
                 sprite.game.playing = False
-    # 檢查y方向的碰撞
-    #
+    #檢查y方向的碰撞
+    #TODO
 
 
 
 
-    #
+    
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y):
         pg.sprite.Sprite.__init__(self)
@@ -56,11 +56,11 @@ class Player(pg.sprite.Sprite):
 
     '''取得按下的按鑑, 並判斷移動方向'''
     def get_keys(self):
-        pass
+        #TODO
 
     '''取得轉動角度值'''
     def get_angle(self):
-        pass
+        #TODO
 
     def update(self):
         self.get_keys()

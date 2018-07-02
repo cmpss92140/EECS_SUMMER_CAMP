@@ -54,7 +54,7 @@ class Player(pg.sprite.Sprite):
                 pos = self.pos + BARREL_OFFSET.rotate(-self.rot)
                 Bullet(self.game, pos, dir)
 
-    '''取得按下的按鑑, 並判斷移動方向'''
+    '''取得按下的按鍵, 並判斷移動方向'''
     def get_keys(self):
         #TODO
 
@@ -65,7 +65,7 @@ class Player(pg.sprite.Sprite):
     def update(self):
         self.get_keys()
         self.get_mouse()
-        #腳色面朝著滑鼠方向
+        #角色面朝著滑鼠方向
         #TODO
 
 

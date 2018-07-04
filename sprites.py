@@ -8,6 +8,14 @@ vec = pg.math.Vector2
 '''處理攻擊的碰撞'''
 def got_hit(sprite, group):
     #TODO
+    hits = pg.sprite.spritecollide(sprite, group, False, collide_hit_rect)
+    if hits:
+        sprite.health -= DAMAGE
+        if isinstance(hits[0], Bullet):
+                hits[0].kill()
+        if sprite.health < 0 and isinstance(sprite, Player):
+            sprite.game.win = False
+            sprite.game.playing = False
 
 def collide(sprite, group, dir):
     if dir == 'x':
@@ -24,6 +32,7 @@ def collide(sprite, group, dir):
                 sprite.game.playing = False
     #檢查y方向的碰撞
     #TODO
+    pass
 
 
 
@@ -57,19 +66,21 @@ class Player(pg.sprite.Sprite):
     '''取得按下的按鍵, 並判斷移動方向'''
     def get_keys(self):
         #TODO
+        pass
 
     '''取得轉動角度值'''
     def get_angle(self):
         #TODO
+        direction = self.mouse_pos - self.game.camera.pos - self.pos
+        return math.atan2(-direction[1],direction[0])
 
     def update(self):
         self.get_keys()
         self.get_mouse()
         #角色面朝著滑鼠方向
         #TODO
-
-
-
+        self.rot = self.get_angle() * 180 / math.pi 
+        self.image = pg.transform.rotate(self.game.player_img, self.rot)
         #
         self.rect = self.image.get_rect()
         collide(self, self.game.treasures, 'x')
